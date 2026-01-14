@@ -206,6 +206,10 @@ services:
     healthcheck:
       <<: *default-healthcheck
       test: true | openssl s_client -connect localhost:443
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
     ports:
       # haproxy/http
       - "80:80/tcp"
